@@ -1,0 +1,29 @@
+# Compilation and execution files
+*.o
+*.out
+*.exe
+
+# IDE or editor generated files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln
+*.vcproj
+*.pdb
+
+# Automatically generated files
+Makefile
+CMakeLists.txt.user
+cmake-build-*/
+
+# Dependency files
+/lib/
+/bin/
+
+# Operating system-specific configuration files
+Thumbs.db
+.DS_Store
+
+# Other temporary files
+*~
