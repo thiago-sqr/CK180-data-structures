@@ -1,3 +1,8 @@
+/*
+*   Engenharia de Computação, DETI~DC, UFC
+*   Implementação de fila limitada via vetor
+*/
+
 #include <iostream>
 
 #define SIZE 5
