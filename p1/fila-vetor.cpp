@@ -18,7 +18,7 @@ struct Queue
 void init(Queue &q);
 void enqueue(Queue &q, char c);
 void dequeue(Queue &q);
-bool empty(Queue &q);
+bool isempty(Queue &q);
 void peek(Queue &q);
 
 int main() 
@@ -49,7 +49,7 @@ int main()
         }
         else if (opt == 3)
         {
-            if (empty(q))
+            if (isempty(q))
                 cout << "EMPTY QUEUE" << endl;
             else
                 cout << "FILLED QUEUE" << endl;
@@ -68,7 +68,7 @@ void init(Queue &q)
 
 void enqueue(Queue &q, char c) 
 {
-    if (q.front == -1) 
+    if (isempty(q)) 
     {
         q.front = 0;
         q.rear = 0;
@@ -95,7 +95,7 @@ void enqueue(Queue &q, char c)
 
 void dequeue(Queue &q) 
 {
-    if (empty(q))
+    if (isempty(q))
     {
         cout << "EMPTY QUEUE" << endl;
     }
@@ -120,7 +120,7 @@ void dequeue(Queue &q)
     }
 }
 
-bool empty(Queue &q) 
+bool isempty(Queue &q) 
 {
     if (q.front == -1)
     {
@@ -131,7 +131,7 @@ bool empty(Queue &q)
 
 void peek(Queue &q) 
 {
-    if (!empty(q))
+    if (!isempty(q))
     {
         cout << "FIRST: " << q.vector[q.front] << endl;
         return;
