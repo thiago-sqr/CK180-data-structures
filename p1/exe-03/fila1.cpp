@@ -1,27 +1,31 @@
 /*
 *   Engenharia de Computação, DETI~DC, UFC
-*   Implementação de fila limitada via vetor
+*   Exercício 03-1: 04-mar-2024
+*
+*   Implementação alternativa de Fila Limitada via Vetor, na qual o índice do  
+*   último seja substituído pela quantidade "n" de elementos presentes na fila.
 */
 
 #include <iostream>
-#include <windows.h> 
+#include <windows.h>
 
 using namespace std;
 
-struct Queue 
+struct Queue
 {
     static constexpr int SIZE = 5;
     char vector[SIZE];
-    int front, rear;
+    int front, elements;
 };
 
 void init(Queue &q);
 bool enqueue(Queue &q, char c);
 bool dequeue(Queue &q);
 bool isempty(Queue &q);
+bool isfull(Queue &q);
 char peek(Queue &q);
 
-int main() 
+int main()
 {
     SetConsoleOutputCP(CP_UTF8);
 
@@ -74,40 +78,51 @@ int main()
     } while (opt != 0);
 }
 
-void init(Queue &q) 
+void init (Queue &q)
 {
     q.front = -1;
+    q.elements = 0;
 }
 
-bool enqueue(Queue &q, char c) 
+bool isempty(Queue &q)
 {
-    if ((q.front == 0 && q.rear == q.SIZE - 1) || (q.front == q.rear + 1))
+    return (q.elements == 0);
+}
+
+bool isfull(Queue &q)
+{
+    return (q.elements == q.SIZE);
+}
+
+bool enqueue(Queue &q, char c)
+{
+    if (isfull(q))
     {
         return false;
     }
-
-    if (isempty(q)) 
+    
+    if (isempty(q))
     {
         q.front = 0;
-        q.rear = 0;  
-    } 
-    else 
-    {
-        q.rear = (q.rear + 1) % q.SIZE;
+        q.elements = 1;
     }
-
-    q.vector[q.rear] = c;
+    else
+    {
+        q.elements++;
+    }
+    
+    q.vector[(q.front + q.elements - 1) % q.SIZE] = c;
     return true;
 }
 
-bool dequeue(Queue &q) 
+bool dequeue(Queue &q)
 {
     if (isempty(q))
     {
         return false;
     }
-
-    if (q.front == q.rear)
+    
+    if (q.elements == 1)
     {
         q.front = -1;
     }
@@ -115,15 +130,12 @@ bool dequeue(Queue &q)
     {
         q.front = (q.front + 1) % q.SIZE;
     }
+    
+    q.elements--;
     return true;
 }
 
-bool isempty(Queue &q) 
+char peek(Queue &q)
 {
-    return (q.front == -1);
-}
-
-char peek(Queue &q) 
-{
-    return q.vector[q.rear];
+    return q.vector[q.front];
 }
