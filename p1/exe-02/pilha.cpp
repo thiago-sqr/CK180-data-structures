@@ -1,5 +1,7 @@
 /*
 *   Engenharia de Computação, DETI~DC, UFC
+*   Exercício 02-1: 01-mar-2024
+*
 *   Implementação de pilha limitada via vetor
 */
 
