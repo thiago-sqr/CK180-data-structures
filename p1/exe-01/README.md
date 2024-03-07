@@ -11,11 +11,11 @@ Para uso regular, o mais conveniente é ter um compilador instalado no computado
 Você também pode separar o editor de texto do compilador, que é como eu farei em sala. No Windows, o Notepad++ é um editor simples e popular, e para o compilador você pode instalar o MSYS2 e em seguida o pacote mingw-w64-i686-gcc.
 Você pode testar a sua instalação com este programa:
 
-´´´
+```
 #include <iostream>
 
 int main ()
   {
    std::cout << "Olá, mundo!\n";
   }
-´´´
+```
