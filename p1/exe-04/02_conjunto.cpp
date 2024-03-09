@@ -2,7 +2,7 @@
 *   Engenharia de Computação, DETI~DC, UFC
 *   Exercício 04-1: 07-mar-24
 *
-*   Implementação de um conjunto limitado via vetor não ordenado
+*   Implementação de um conjunto limitado via vetor ordenado
 */
 
 #include <iostream>
@@ -33,11 +33,23 @@ bool isfull(Set &S)
 
 bool search(Set &S, char c)
 {
-    for (int i = 0; i < S.elements; i++)
+    int min = 0;
+    int max = S.elements - 1;
+    while (min <= max)
     {
-        if (S.vector[i] == c)
+        int mid = (min + max) / 2;
+
+        if (S.vector[mid] == c)
         {
             return true;
+        }
+        else if (c < S.vector[mid])
+        {
+            max = mid - 1;
+        }
+        else
+        {
+            min = mid + 1;
         }
     }
     return false;
@@ -50,7 +62,28 @@ bool insert_new(Set &S, char c)
         return false;
     }
 
-    S.vector[S.elements] = c;
+    bool changes = false;
+
+    for (int i = 0; i < S.elements; i++)
+    {
+        if (c < S.vector[i])
+        {
+            for (int j = S.elements - 1; j >= i; j--)
+            {
+                S.vector[j + 1] = S.vector[j];
+            }
+
+            S.vector[i] = c;
+            changes = true;
+            break;
+        }
+    }
+
+    if (!changes)
+    {
+        S.vector[S.elements] = c;
+    }
+
     S.elements++;
     return true;
 }
@@ -76,7 +109,12 @@ bool remove(Set &S, char c)
             if (S.vector[i] == c)
             {
                 S.elements--;
-                S.vector[i] = S.vector[S.elements];
+
+                for (int j = i; j < S.elements; j++)
+                {
+                    S.vector[j] = S.vector[j + 1];
+                }
+
                 return true;
             }
         }
