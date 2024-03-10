@@ -1,6 +1,6 @@
 /*
 *   Engenharia de Computação, DETI~DC, UFC
-*   Exercício 04-1: 07-mar-24
+*   Exercício 04-2: 07-mar-24
 *
 *   Implementação de um conjunto limitado via vetor ordenado
 */
