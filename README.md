@@ -8,3 +8,7 @@ Período: 1° semestre de 2024
 ### p1: Tipos limitados via vetor
 
 ( . . . )
+
+### p2: Tipos ilimitados
+
+( . . . )
