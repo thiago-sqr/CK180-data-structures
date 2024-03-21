@@ -98,7 +98,7 @@ bool push(Stack &s, char c)
         s.rear++;
     }
 
-    s.vector[s.front] = c;
+    s.vector[s.rear] = c;
     return true;
 }
 
