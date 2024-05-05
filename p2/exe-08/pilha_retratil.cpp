@@ -93,6 +93,6 @@ bool desempilhar(Pilha &p)
 
 double ultimo(Pilha &p)
 {
-	return p.vetor[p.elementos - 1];
+    return p.vetor[p.elementos - 1];
 }
 
