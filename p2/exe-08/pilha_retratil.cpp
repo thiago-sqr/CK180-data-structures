@@ -2,7 +2,7 @@
 *   Engenharia de Computação, DETI~DC, UFC
 *   Exercício 08-1: 17-abr-2024
 *
-*   Implementação de pilha ilimitada via vetor
+*   Implementação de pilha retrátil ilimitada via vetor
 */
 
 #include <iostream>
