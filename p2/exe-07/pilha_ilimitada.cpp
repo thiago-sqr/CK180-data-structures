@@ -62,13 +62,10 @@ bool empilhar(Pilha &p, double x)
 		delete[] p.vetor;
 		p.vetor = novo_vetor;
 		p.max = p.max * 2;
-		p.vetor[p.elementos++] = x;
-	}
-	else
-	{
-		p.vetor[p.elementos++] = x;
+		
 	}
 	
+	p.vetor[p.elementos++] = x;
 	return true;
 }
 
