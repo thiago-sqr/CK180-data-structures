@@ -1,25 +1,22 @@
-/*
-*   Engenharia de Computação, DETI~DC, UFC
-*   Exercício 08-1: 17-abr-2024
-*
-*   Implementação de pilha retrátil ilimitada via vetor
-*/
+#ifndef PILHA_H
+#define PILHA_H
 
 #include <iostream>
-#include <new>
 
+template <typename tipo>
 struct Pilha 
 {
-    double *vetor;
+    tipo *vetor;
     int elementos;
     int max;
 };
 
-bool init(Pilha &p)
+template <typename tipo>
+bool init(Pilha<tipo> &p)
 {
     try
     {
-        double *novo_vetor = new double [1];
+        tipo *novo_vetor = new tipo [1];
         p.vetor = novo_vetor;
         p.max = 1;
         p.elementos = 0;
@@ -33,17 +30,19 @@ bool init(Pilha &p)
     return false;
 }
 
-void destruir(Pilha &p)
+template <typename tipo>
+void destruir(Pilha<tipo> &p)
 {
-    delete[] p.vetor;
+	delete[] p.vetor;
 }
 
-bool formatar_vetor(Pilha &p, bool ctrl) // ctrl=1 -> aumenta vetor | ctrl=0 -> diminui vetor
+template <typename tipo>
+bool formatar_vetor(Pilha<tipo> &p, bool ctrl) // ctrl=1 -> aumenta vetor | ctrl=0 -> diminui vetor
 {
-    double *novo_vetor;
+    tipo *novo_vetor;
     try
     {
-        novo_vetor = (ctrl) ? new double [p.max * 2] : new double [p.max / 2];
+        novo_vetor = (ctrl) ? new tipo [p.max * 2] : new tipo [p.max / 2];
     }
     catch (const std::exception& e)
     {
@@ -64,7 +63,8 @@ bool formatar_vetor(Pilha &p, bool ctrl) // ctrl=1 -> aumenta vetor | ctrl=0 -> 
     return true;
 }
 
-bool empilhar(Pilha &p, double x)
+template <typename tipo>
+bool empilhar(Pilha<tipo> &p, double x)
 {
     if (p.elementos == p.max)
     {
@@ -75,7 +75,8 @@ bool empilhar(Pilha &p, double x)
     return true;   
 }
 
-bool desempilhar(Pilha &p)
+template <typename tipo>
+bool desempilhar(Pilha<tipo> &p)
 {
     if (p.elementos == 0)
     {
@@ -92,8 +93,10 @@ bool desempilhar(Pilha &p)
     return true;
 }
 
-double ultimo(Pilha &p)
+template <typename tipo>
+tipo ultimo(Pilha<tipo> &p)
 {
     return p.vetor[p.elementos - 1];
 }
 
+#endif
