@@ -7,7 +7,7 @@
 
 #include "pilha.h"
 #include <iostream>
-#include <new>
+#include <string>
 
 double resolver(std::string expr);
 void operar(Pilha<char> &o, Pilha<double> &n);
@@ -37,13 +37,13 @@ double resolver(std::string expr)
 
         if (expr[i] == ')')
         {
-            if (token != "") empilhar(numeros, stod(token))   ; 
+            if (token != "") empilhar(numeros, std::stod(token))   ; 
             token = "";                                             
             operar(operadores, numeros);
         }
         else if (expr[i] == '+' or expr[i] == '-' or expr[i] == '*' or expr[i] == '/')
         {
-            if (token != "") empilhar(numeros, stod(token));        
+            if (token != "") empilhar(numeros, std::stod(token));        
             token = "";                                             
             empilhar(operadores, expr[i]);       
         }
