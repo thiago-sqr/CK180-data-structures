@@ -1,3 +1,10 @@
+/*
+ *   Engenharia de Computação, DETI~DC, UFC
+ *   Exercício 11-2: 18-jul-2024
+ *
+ *   Implementação de deque usando lista duplamente encadeada
+ */
+
 package fila
 
 type No struct {

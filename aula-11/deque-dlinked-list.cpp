@@ -1,6 +1,6 @@
 /*
  *   Engenharia de Computação, DETI~DC, UFC
- *   Aula 11: 18-jul-2024
+ *   Exercício 11-1: 18-jul-2024
  *
  *   Implementação de deque usando lista duplamente encadeada
  */

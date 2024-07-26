@@ -15,7 +15,7 @@ Tipos de dados limitados via vetor referem-se a estruturas de dados que armazena
 - Aula 4 : Conjunto e busca binária
 - Aula 5 : Dicionário
 
-### p2: Tipos ilimitados
+### Parte 2: Tipos ilimitados
 
 ( . . . )
 
@@ -26,3 +26,7 @@ Tipos de dados limitados via vetor referem-se a estruturas de dados que armazena
 - Aula 10 : Pilha via lista encadeada
 - Aula 11 : Deque via lista duplamente encadeada
 - Aula 12 : Dicionario via lista encadeada
+
+### Parte 3: Tabelas de Dispersão e Árvores Binárias de Busca Simples)
+
+- Aula 13: Matrizes

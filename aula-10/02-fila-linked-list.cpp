@@ -1,6 +1,6 @@
 /*
  *   Engenharia de Computação, DETI~DC, UFC
- *   Exercício 10-1: 15-jul-2024
+ *   Exercício 10-2: 15-jul-2024
  *
  *   Implementação de fila usando lista encadeada
  */
