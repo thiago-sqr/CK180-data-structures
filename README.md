@@ -22,7 +22,7 @@ Tipos de dados limitados via vetor referem-se a estruturas de dados que armazena
 - Aula 6 : Ponteiros
 - Aula 7 : Durações de armazenamento e alocação dinâmica
 - Aula 8 : Redimensionamento de vetores
-- Aula 9 : Aplicação de pilha (notação polonesa)
+- Aula 9 : Aplicação de pilha (expressão algébrica)
 - Aula 10 : Pilha via lista encadeada
 - Aula 11 : Deque via lista duplamente encadeada
 - Aula 12 : Dicionario via lista encadeada
