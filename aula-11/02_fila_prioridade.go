@@ -4,7 +4,6 @@
  *
  *   Implementação de deque usando lista duplamente encadeada
  */
-
 package fila
 
 type No struct {

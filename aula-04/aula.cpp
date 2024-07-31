@@ -1,6 +1,6 @@
 /*
  *   Engenharia de Computação, DETI~DC, UFC
- *   Exercício de Sala: 07-mar-24
+ *   Aula 04: 07-mar-24
  *
  *   Implementação de uma search binária.
  */
