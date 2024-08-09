@@ -9,11 +9,6 @@
 
 using namespace std;
 
-struct ResConsulta {
-    bool achado;
-    string valor;
-};
-
 class Dicio {
     struct Par {
         int chave;
@@ -28,6 +23,11 @@ public:
         sentinela = new Par;
         sentinela->prox = sentinela;
     }
+
+    struct ResConsulta {
+        bool achado;
+        string valor;
+    };
 
     ResConsulta consultar(int chave) {
         sentinela->chave = chave;

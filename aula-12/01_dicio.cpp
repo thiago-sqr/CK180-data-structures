@@ -8,11 +8,6 @@
 
 using namespace std;
 
-struct ResConsulta {
-    bool achado;
-    string valor;
-};
-
 class Dicio {
     struct Par {
         Par *ant;
@@ -25,6 +20,11 @@ class Dicio {
 
 public:
     Dicio() : init{nullptr} {}
+
+    struct ResConsulta {
+        bool achado;
+        string valor;
+    };
 
     ResConsulta consultar(int chave) {
         Par *cursor = init;
@@ -73,7 +73,6 @@ public:
                 if (cursor->prox != nullptr) {
                     cursor->prox->ant = cursor->ant;
                 }
-                cout << "Removendo " << cursor->valor << endl;
                 delete cursor;
             }
             cursor = cursor->prox;
@@ -99,7 +98,7 @@ int main() {
     d.inserir_se_novo(20, "Bob");
     d.inserir(30, "Clara");
 
-    ResConsulta res = d.consultar(10);
+    Dicio::ResConsulta res = d.consultar(10);
     cout << "chave 10 : " << res.valor << endl;
     res = d.consultar(20);
     cout << "chave 20 : " << res.valor << endl;

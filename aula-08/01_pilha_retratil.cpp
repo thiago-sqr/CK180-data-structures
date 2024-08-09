@@ -19,8 +19,7 @@ bool init(Pilha &p)
 {
     try
     {
-        double *novo_vetor = new double [1];
-        p.vetor = novo_vetor;
+        p.vetor = new double [1];
         p.max = 1;
         p.elementos = 0;
         return true;
@@ -84,7 +83,7 @@ bool desempilhar(Pilha &p)
 
     p.elementos--;
 
-    if (p.elementos == (p.max / 2))
+    if (p.elementos == (p.max / 4))
     {
         if (not formatar_vetor(p, false)) return false;
     }
