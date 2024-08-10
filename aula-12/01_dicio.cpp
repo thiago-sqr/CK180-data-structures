@@ -74,6 +74,7 @@ public:
                     cursor->prox->ant = cursor->ant;
                 }
                 delete cursor;
+                return;
             }
             cursor = cursor->prox;
         }

@@ -63,7 +63,8 @@ public:
         if (cursor != sentinela and cursor->chave == chave) {
             Par *aux = cursor;
             sentinela->prox = cursor->prox;
-            delete aux;
+            delete aux; 
+            return;
         }
         while (cursor->prox->chave != chave) {
             cursor = cursor->prox;
