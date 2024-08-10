@@ -14,16 +14,13 @@ Matriz produto(Matriz &A, Matriz &B) {
 
     Matriz resultado(A.getLinhas(), B.getColunas());
 
-    for (int i = 0; i < resultado.getLinhas(); i++) {
-        for (int j = 0; j < resultado.getColunas(); j++) {
+    for (int i = 0; i < resultado.getLinhas(); i++, estaticoA++, estaticoB = 0) {
+        for (int j = 0; j < resultado.getColunas(); j++, estaticoB++) {
             resultado(i,j) = 0;
             for (dinamico = 0; dinamico < dimensaoFixa; dinamico++) {
                 resultado(i,j) += A(estaticoA, dinamico) * B(dinamico, estaticoB);
             }
-            estaticoB++;
         }
-        estaticoA++;
-        estaticoB = 0;
     }
     return resultado;
 }
