@@ -37,15 +37,12 @@ public:
 
     ResConsulta consultar(int chave) {
         ResConsulta res{false, "Chave invalida"};
-        int index = hash(chave);
-        No *cursor = tabela[index];
-        while (cursor != nullptr) {
+        for (No *cursor = tabela[hash(chave)]; cursor != nullptr; cursor = cursor->prox) {
             if (cursor->chave == chave) {
                 res.achado = true;
                 res.valor = cursor->valor;
                 return res;
             }
-            cursor = cursor->prox;
         }
         return res;
     }
