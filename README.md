@@ -33,3 +33,7 @@ Período: 1° semestre de 2024
 - Aula 13: Matrizes
 - Aula 14: Tabelas de Dispersão (1/2)
 - Aula 15: Tabelas de Dispersão (2/2)
+- Aula 16: Árvores Binárias de Busca (1/3)
+- Aula 17: Árvores Binárias de Busca (2/3)
+- Aula 18: Árvores Binárias de Busca (3/3)
+- Aula 19: Percursos numa árvore

@@ -1,4 +1,4 @@
-## Exercícios Aula 14
+## Exercícios Aula 15
 
 ### (Q1)
 Continue a implementação de dicionário escrita na aula, escrevendo uma função para consultar o valor correspondente uma dada chave. Lembre de:

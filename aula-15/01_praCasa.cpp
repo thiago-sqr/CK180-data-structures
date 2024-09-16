@@ -1,11 +1,8 @@
 /*
  *   Engenharia de Computação, DETI~DC, UFC
- *   Aula 15: 5-ago-2024
+ *   Exercício 15: 5-ago-2024
  *
- *   Implementação de dicionário com tabelas de dispersão
- *   - mantemos tamanho>=elementos; 
- *   - podemos começar com tamanho = 1; 
- *   - utilizemos hash(chave) = chave % tamanho;
+ *    Continuação implementação de dicionário com tabelas de dispersão
  */
 #include <iostream>
 
@@ -58,6 +55,25 @@ public:
         }
     }
 
+    struct ResConsulta {
+        bool achado;
+        string valor;
+    };
+
+    ResConsulta consultar(int chave) {
+        ResConsulta res {false, "Chave nao encontrada"};
+        sentinela.chave = chave;
+        No *cursor = tabela[hash(chave)];
+        while (cursor->chave != chave) {
+            cursor = cursor->prox;
+        }
+        if (cursor != &sentinela) {
+            res.achado = true;
+            res.valor = cursor->valor;
+        }
+        return res;
+    }
+
     void inserir(int chave, string valor) {
         if (tamanho == elementos) {
             redimensionar(tamanho * 2);
@@ -67,24 +83,46 @@ public:
         ++elementos;
     }
 
-    struct ResConsulta {
-        bool achado;
-        string valor;
-    };
-
-    ResConsulta consultar(int chave) {
-        // TODO
-    }
-
     void inserirSeNovo(int chave, string valor) {
-        // TODO
+        if (not consultar(chave).achado) {
+            inserir(chave, valor);
+        }
     }
 
     void remover(int chave) {
-        // TODO
+        int index = hash(chave);
+        if (tabela[index] == &sentinela) return;
+
+        No *cursor = tabela[index];
+
+        if (cursor->chave == chave) {
+            tabela[index] = cursor->prox;
+            delete cursor;
+        } else {
+            sentinela.chave = chave;
+            while (cursor->prox->chave != chave) {
+                cursor = cursor->prox;
+            }
+            if (cursor->prox == &sentinela) return;
+            No *aux = cursor->prox;
+            cursor->prox = aux->prox;
+            delete aux;           
+        }
+
+        elementos--;
+        if (tamanho == elementos * 4) {
+            redimensionar(tamanho / 2);
+        }
     }
 
     ~Dicio() {
-        // TODO
+        for (int i = 0; i < tamanho; i++) {
+            while (tabela[i] != nullptr) {
+                No *aux = tabela[i];
+                tabela[i] = tabela[i]->prox;
+                delete aux;
+            }
+        }
+        delete[] tabela;
     }
 };
